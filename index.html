@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Redstone — Duplicate Image Audit for Mostafa</title>
+<style>
+  :root {
+    --paper:#FAFAF7; --surface:#FFFFFF; --ink:#1E1F20; --slate:#5C6065; --faint:#8B8F94;
+    --line:#E4E3DF; --red:#B21E24; --red-soft:#F6E9E9; --warn:#8A5A12; --warn-soft:#F5EDDD;
+    --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --display:"Avenir Next","Avenir",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+  @media (prefers-color-scheme: dark) { :root {
+    --paper:#17181A; --surface:#1E2023; --ink:#E9E8E4; --slate:#A6A9AD; --faint:#7C8085;
+    --line:#33363A; --red:#E14C52; --red-soft:#3A2224; --warn:#D6A452; --warn-soft:#332B1B; } }
+  :root[data-theme="dark"] {
+    --paper:#17181A; --surface:#1E2023; --ink:#E9E8E4; --slate:#A6A9AD; --faint:#7C8085;
+    --line:#33363A; --red:#E14C52; --red-soft:#3A2224; --warn:#D6A452; --warn-soft:#332B1B; }
+  :root[data-theme="light"] {
+    --paper:#FAFAF7; --surface:#FFFFFF; --ink:#1E1F20; --slate:#5C6065; --faint:#8B8F94;
+    --line:#E4E3DF; --red:#B21E24; --red-soft:#F6E9E9; --warn:#8A5A12; --warn-soft:#F5EDDD; }
+  html { background:var(--paper); }
+  body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans);
+    font-size:15.5px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:960px; margin:0 auto; padding:52px 28px 96px; }
+  .kicker { font:600 11.5px/1 var(--mono); letter-spacing:.14em; text-transform:uppercase;
+    color:var(--red); display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+  .kicker::before { content:''; width:26px; height:2px; background:var(--red); }
+  h1 { font-family:var(--display); font-size:clamp(26px,4.2vw,36px); font-weight:700;
+    letter-spacing:-.02em; line-height:1.1; margin:0 0 12px; text-wrap:balance; }
+  .lede { color:var(--slate); max-width:70ch; margin:0 0 8px; }
+  .masthead { border-bottom:2px solid var(--ink); padding-bottom:24px; }
+  a { color:var(--red); text-decoration:none; border-bottom:1px solid color-mix(in srgb,var(--red) 35%,transparent); }
+  a:hover, a:focus-visible { border-bottom-color:var(--red); }
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line);
+    border:1px solid var(--line); margin:24px 0 0; }
+  @media (max-width:640px) { .stats { grid-template-columns:repeat(2,1fr); } }
+  .stat { background:var(--surface); padding:14px 16px 12px; }
+  .stat b { display:block; font:700 24px/1.1 var(--display); letter-spacing:-.02em; font-variant-numeric:tabular-nums; }
+  .stat span { display:block; margin-top:4px; font-size:12px; line-height:1.45; color:var(--slate); }
+  section { margin-top:48px; }
+  h2 { font-family:var(--display); font-size:20px; font-weight:700; letter-spacing:-.015em;
+    margin:0 0 6px; border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .sub { color:var(--slate); font-size:13.5px; margin:8px 0 18px; max-width:74ch; }
+  .shot { list-style:none; margin:0; padding:0; }
+  .shot li { display:grid; grid-template-columns:150px 1fr; gap:16px; padding:13px 0; border-bottom:1px solid var(--line); }
+  .shot li:last-child { border-bottom:0; }
+  .shot .tag { font:600 12px/1.7 var(--mono); color:var(--red); }
+  .shot b { font-weight:650; }
+  .shot small { display:block; color:var(--slate); font-size:13.5px; line-height:1.55; margin-top:2px; }
+  @media (max-width:560px) { .shot li { grid-template-columns:1fr; gap:2px; } }
+  .tablewrap { overflow-x:auto; border:1px solid var(--line); }
+  table { border-collapse:collapse; width:100%; font-size:13px; background:var(--surface); }
+  th { font:600 10.5px/1.3 var(--mono); letter-spacing:.1em; text-transform:uppercase; color:var(--faint);
+    text-align:left; padding:9px 12px; border-bottom:1px solid var(--line); position:sticky; top:0; background:var(--surface); }
+  td { padding:8px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
+  tr:last-child td { border-bottom:0; }
+  td:nth-child(1) { white-space:nowrap; font-family:var(--mono); font-size:12px; }
+  td:nth-child(2) { font-family:var(--mono); font-size:12px; white-space:nowrap; }
+  td.n { font-family:var(--mono); text-align:right; color:var(--red); font-weight:600; white-space:nowrap; }
+  .note { border-left:3px solid var(--warn); background:var(--warn-soft); padding:12px 16px;
+    font-size:13.5px; margin:18px 0 0; }
+  .note b { color:var(--warn); font:600 11px/1 var(--mono); letter-spacing:.1em; text-transform:uppercase; display:block; margin-bottom:5px; }
+  footer { margin-top:56px; padding-top:14px; border-top:1px solid var(--line); color:var(--faint); font-size:12.5px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <div class="kicker">Redstone Manufacturing · Imagery Audit</div>
+    <h1>Duplicate images on the same page — where new photography is needed</h1>
+    <p class="lede">Automated scan of every built page on <a href="https://redstone-web-eight.vercel.app">redstone-web-eight.vercel.app</a> (July 8, 2026). A "duplicate" means the same image file visibly renders two or more times on one page. Intentional repeats are excluded: the client-logo marquee loop, carousel main-image + its own thumbnail, and video poster/fallback pairs.</p>
+    <div class="stats">
+      <div class="stat"><b>39</b><span>pages showing the same photo more than once</span></div>
+      <div class="stat"><b>72</b><span>duplicated images across those pages</span></div>
+      <div class="stat"><b>×15</b><span>worst single case: one stock photo on 15 article cards (blog index)</span></div>
+      <div class="stat"><b>6</b><span>photo families that would clear most of the list</span></div>
+    </div>
+  </header>
+
+  <section>
+    <h2>Shot list — what to send, in priority order</h2>
+    <p class="sub">The duplicates are almost all a supply problem: sections cycle through a family's photo pool, and when the pool is smaller than the number of slots, images repeat. These six batches would clear the bulk of the table below.</p>
+    <ul class="shot">
+      <li><span class="tag">SHEET METAL</span><div><b>5–6 fabricated part photos</b> (brackets, enclosures-style weldments, formed panels — finished parts, not texture close-ups).
+        <small>The hub page has 10+ capability cards drawing on only 4 photos, so tread plate and perforated panel each show 3–4 times on one page.</small></div></li>
+      <li><span class="tag">CNC</span><div><b>4–6 machined part photos</b> (milled housings, turned shafts, finished billet parts on neutral background).
+        <small>The CNC hub cycles 6 photos across 10 route cards plus the gallery — every image appears twice or more. Current shots are also phone-quality.</small></div></li>
+      <li><span class="tag">INVESTMENT CASTING</span><div><b>4–5 real investment castings</b> (stainless / carbon steel parts, shell or finished).
+        <small>The family borrows one die-casting photo (valve-bodies.jpg) that repeats on all six investment casting pages, in both the gallery and the industries strip.</small></div></li>
+      <li><span class="tag">FINISHING</span><div><b>3–4 photos each for powder coating and anodizing/metal finishing</b>.
+        <small>Both pages fill their entire four-tile gallery with a single photo repeated four times.</small></div></li>
+      <li><span class="tag">US FACILITY</span><div><b>3–4 photos of the Seattle operation</b> (floor, machines, parts).
+        <small>The USA manufacturing page repeats one generic machine-shop photo across all four gallery tiles.</small></div></li>
+      <li><span class="tag">ARTICLE THUMBS</span><div><b>A wider set of editorial/detail shots for article cards</b> (metal textures, measurement, stock, tooling — 10–15 varied images).
+        <small>The blog index reuses one stock photo on 15 cards and another on 9. Anything on-theme works; variety is the goal.</small></div></li>
+    </ul>
+    <div class="note"><b>Already requested</b> India facility photos (hero, floor, inspection, parts) and sand-casting part photography are in the earlier Slack request — same batch, still needed. Sand casting doesn't appear in this duplicate list only because its low-res repeats were swapped for stand-ins today.</div>
+  </section>
+
+  <section>
+    <h2>Full findings — every page, every repeated image</h2>
+    <p class="sub">Sorted worst-first. Image names link to the file so you can see exactly which shot repeats; page paths link to the live page. "Sections" says where on the page the same file appears.</p>
+    <div class="tablewrap">
+      <table>
+        <tr><th>Page</th><th>Image</th><th>Times</th><th>Sections where it appears</th></tr>
+        <tr><td><a href="https://redstone-web-eight.vercel.app/resources/blog/">/resources/blog/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/stock/machined-parts.jpg">machined-parts.jpg</a></td><td class="n">×15</td><td>Card ×15</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/editorial/steel-stock.jpg">steel-stock.jpg</a></td><td class="n">×9</td><td>Card ×9</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/stock/die-casting.jpg">die-casting.jpg</a></td><td class="n">×6</td><td>Card ×6</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/stock/cnc-machining.jpg">cnc-machining.jpg</a></td><td class="n">×5</td><td>Card ×5</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/editorial/aluminum-stock.jpg">aluminum-stock.jpg</a></td><td class="n">×5</td><td>Card ×5</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/editorial/casting-dies.jpg">casting-dies.jpg</a></td><td class="n">×4</td><td>Card ×4</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/editorial/precision-measuring.jpg">precision-measuring.jpg</a></td><td class="n">×3</td><td>Card ×3</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/editorial/mim-parts.jpg">mim-parts.jpg</a></td><td class="n">×3</td><td>Card ×3</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/editorial/stainless-tubes.jpg">stainless-tubes.jpg</a></td><td class="n">×3</td><td>Card ×3</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/editorial/anodized-hardware.jpg">anodized-hardware.jpg</a></td><td class="n">×2</td><td>Card ×2</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/industries/industrial-machinery/">/industries/industrial-machinery/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/stock/die-casting.jpg">die-casting.jpg</a></td><td class="n">×4</td><td>Hero + Card + Representative-work carousel + Carousel thumbnail</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/metal-finishing/">/services/metal-finishing/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/editorial/anodized-hardware.jpg">anodized-hardware.jpg</a></td><td class="n">×4</td><td>&quot;What we produce&quot; gallery ×4</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/plasma-cutting/">/services/plasma-cutting/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/editorial/sheet-metal-cutting.jpg">sheet-metal-cutting.jpg</a></td><td class="n">×4</td><td>&quot;What we produce&quot; gallery ×4</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/powder-coating/">/services/powder-coating/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/editorial/anodized-hardware.jpg">anodized-hardware.jpg</a></td><td class="n">×4</td><td>&quot;What we produce&quot; gallery ×4</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/sheet-metal-fabrication/">/services/sheet-metal-fabrication/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/sheet-metal-fabrication/tread-plate.jpg">tread-plate.jpg</a></td><td class="n">×4</td><td>Capability route card ×3 + &quot;What we produce&quot; gallery</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/sheet-metal-fabrication/perforated-panel.jpg">perforated-panel.jpg</a></td><td class="n">×4</td><td>Capability route card ×3 + &quot;What we produce&quot; gallery</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/sheet-metal-fabrication/expanded-metal-sheet.jpg">expanded-metal-sheet.jpg</a></td><td class="n">×3</td><td>Capability route card ×2 + &quot;What we produce&quot; gallery</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/sheet-metal-fabrication/angled-bracket.jpg">angled-bracket.jpg</a></td><td class="n">×3</td><td>Capability route card ×2 + &quot;What we produce&quot; gallery</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/usa-manufacturing/">/services/usa-manufacturing/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/editorial/machine-shop.jpg">machine-shop.jpg</a></td><td class="n">×4</td><td>&quot;What we produce&quot; gallery ×4</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/geo/india/">/geo/india/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/investment-casting/invcast-cylinder-head.jpg">invcast-cylinder-head.jpg</a></td><td class="n">×3</td><td>Thumbnail ×2 + Content section</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/editorial/machine-shop.jpg">machine-shop.jpg</a></td><td class="n">×2</td><td>Content section ×2</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/geo/mexico/">/geo/mexico/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/mont/parts-staged-on-line.jpg">parts-staged-on-line.jpg</a></td><td class="n">×3</td><td>Hero + Content section + Thumbnail</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/editorial/machine-shop.jpg">machine-shop.jpg</a></td><td class="n">×2</td><td>Content section ×2</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/industries/industrial-equipment/">/industries/industrial-equipment/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/editorial/robotic-automation.jpg">robotic-automation.jpg</a></td><td class="n">×3</td><td>Hero + Representative-work carousel + Carousel thumbnail</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/industries/medical/">/industries/medical/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/editorial/precision-measuring.jpg">precision-measuring.jpg</a></td><td class="n">×3</td><td>Documentation split + Representative-work carousel + Carousel thumbnail</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/stock/machined-parts.jpg">machined-parts.jpg</a></td><td class="n">×3</td><td>Capability/application block + Representative-work carousel + Carousel thumbnail</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/editorial/mim-parts.jpg">mim-parts.jpg</a></td><td class="n">×3</td><td>Documentation split + Representative-work carousel + Carousel thumbnail</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/stock/inspection-cmm.jpg">inspection-cmm.jpg</a></td><td class="n">×2</td><td>Hero + &quot;Why Redstone&quot; card</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/editorial/stainless-tubes.jpg">stainless-tubes.jpg</a></td><td class="n">×2</td><td>&quot;Why Redstone&quot; card + Card</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/resources/1020-steel-equivalents/">/resources/1020-steel-equivalents/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/stock/machined-parts.jpg">machined-parts.jpg</a></td><td class="n">×3</td><td>Hero + Thumbnail ×2</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/resources/designing-for-metal-injection-molding/">/resources/designing-for-metal-injection-molding/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/editorial/mim-parts.jpg">mim-parts.jpg</a></td><td class="n">×3</td><td>Hero + Thumbnail ×2</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/resources/ductile-vs-carbon-steel/">/resources/ductile-vs-carbon-steel/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/stock/machined-parts.jpg">machined-parts.jpg</a></td><td class="n">×3</td><td>Hero + Thumbnail ×2</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/resources/g3141-equivalents/">/resources/g3141-equivalents/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/stock/machined-parts.jpg">machined-parts.jpg</a></td><td class="n">×3</td><td>Thumbnail ×3</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/resources/grey-vs-ductile-iron/">/resources/grey-vs-ductile-iron/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/stock/machined-parts.jpg">machined-parts.jpg</a></td><td class="n">×3</td><td>Hero + Thumbnail ×2</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/cnc-machining/">/services/cnc-machining/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/cnc-machining/cylinder-housings-endcaps.jpg">cylinder-housings-endcaps.jpg</a></td><td class="n">×3</td><td>Capability route card ×2 + &quot;What we produce&quot; gallery</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/cnc-machining/flange-housing.jpg">flange-housing.jpg</a></td><td class="n">×3</td><td>Capability route card ×2 + &quot;What we produce&quot; gallery</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/cnc-machining/motor-end-bell.jpg">motor-end-bell.jpg</a></td><td class="n">×3</td><td>Capability route card ×2 + &quot;What we produce&quot; gallery</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/cnc-machining/plates-indexing-fixture.jpg">plates-indexing-fixture.jpg</a></td><td class="n">×2</td><td>Capability route card ×2</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/cnc-machining/pump-housing-cover.jpg">pump-housing-cover.jpg</a></td><td class="n">×2</td><td>Capability route card ×2</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/cnc-machining/sample-parts-display.jpg">sample-parts-display.jpg</a></td><td class="n">×2</td><td>Capability route card + &quot;What we produce&quot; gallery</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/categories/casting/">/categories/casting/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/stock/machined-parts.jpg">machined-parts.jpg</a></td><td class="n">×2</td><td>Card + Photo split</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/geo/china/">/geo/china/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/editorial/machine-shop.jpg">machine-shop.jpg</a></td><td class="n">×2</td><td>Content section ×2</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/aluminum-casting/">/services/aluminum-casting/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/cnc-machining/flange-housing.jpg">flange-housing.jpg</a></td><td class="n">×2</td><td>&quot;What we produce&quot; gallery ×2</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/cnc-machining-china/">/services/cnc-machining-china/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/cnc-machining/cylinder-housings-endcaps.jpg">cylinder-housings-endcaps.jpg</a></td><td class="n">×2</td><td>&quot;What we produce&quot; gallery + Related-capabilities card</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/cnc-machining-india/">/services/cnc-machining-india/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/cnc-machining/cylinder-housings-endcaps.jpg">cylinder-housings-endcaps.jpg</a></td><td class="n">×2</td><td>&quot;What we produce&quot; gallery + Related-capabilities card</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/cnc-machining-mexico/">/services/cnc-machining-mexico/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/cnc-machining/cylinder-housings-endcaps.jpg">cylinder-housings-endcaps.jpg</a></td><td class="n">×2</td><td>&quot;What we produce&quot; gallery + Related-capabilities card</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/die-casting-china/">/services/die-casting-china/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/die-casting/die-cast-water-pump.jpg">die-cast-water-pump.jpg</a></td><td class="n">×2</td><td>Hero + Related-capabilities card</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/die-casting-india/">/services/die-casting-india/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/die-casting/die-cast-water-pump.jpg">die-cast-water-pump.jpg</a></td><td class="n">×2</td><td>Hero + Related-capabilities card</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/die-casting-mexico/">/services/die-casting-mexico/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/die-casting/die-cast-water-pump.jpg">die-cast-water-pump.jpg</a></td><td class="n">×2</td><td>Hero + Related-capabilities card</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/die-casting/">/services/die-casting/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/die-casting/die-cast-housing-white.jpg">die-cast-housing-white.jpg</a></td><td class="n">×2</td><td>Capability route card + &quot;What we produce&quot; gallery</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/die-casting/die-cast-timing-cover.jpg">die-cast-timing-cover.jpg</a></td><td class="n">×2</td><td>Capability route card + &quot;What we produce&quot; gallery</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/die-casting/aluminum-flanged-parts.jpg">aluminum-flanged-parts.jpg</a></td><td class="n">×2</td><td>Capability route card + &quot;What we produce&quot; gallery</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/die-casting/aluminum-ring-flange.jpg">aluminum-ring-flange.jpg</a></td><td class="n">×2</td><td>Capability route card + &quot;What we produce&quot; gallery</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/high-pressure-die-casting/">/services/high-pressure-die-casting/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/die-casting/die-cast-water-pump.jpg">die-cast-water-pump.jpg</a></td><td class="n">×2</td><td>Hero + Related-capabilities card</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/investment-casting-china/">/services/investment-casting-china/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/investment-casting/invcast-cylinder-head.jpg">invcast-cylinder-head.jpg</a></td><td class="n">×2</td><td>Hero + Related-capabilities card</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/die-casting/valve-bodies.jpg">valve-bodies.jpg</a></td><td class="n">×2</td><td>&quot;What we produce&quot; gallery + Industries carousel</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/investment-casting-india/">/services/investment-casting-india/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/investment-casting/invcast-cylinder-head.jpg">invcast-cylinder-head.jpg</a></td><td class="n">×2</td><td>Hero + Related-capabilities card</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/die-casting/valve-bodies.jpg">valve-bodies.jpg</a></td><td class="n">×2</td><td>&quot;What we produce&quot; gallery + Industries carousel</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/investment-casting-mexico/">/services/investment-casting-mexico/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/investment-casting/invcast-cylinder-head.jpg">invcast-cylinder-head.jpg</a></td><td class="n">×2</td><td>Hero + Related-capabilities card</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/die-casting/valve-bodies.jpg">valve-bodies.jpg</a></td><td class="n">×2</td><td>&quot;What we produce&quot; gallery + Industries carousel</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/investment-casting/">/services/investment-casting/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/investment-casting/pump-impeller.jpg">pump-impeller.jpg</a></td><td class="n">×2</td><td>Capability route card + &quot;What we produce&quot; gallery</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/cnc-machining/flange-housing.jpg">flange-housing.jpg</a></td><td class="n">×2</td><td>Capability route card + &quot;What we produce&quot; gallery</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/die-casting/valve-bodies.jpg">valve-bodies.jpg</a></td><td class="n">×2</td><td>&quot;What we produce&quot; gallery + Industries carousel</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/investment-casting/aluminum/">/services/investment-casting/aluminum/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/die-casting/valve-bodies.jpg">valve-bodies.jpg</a></td><td class="n">×2</td><td>&quot;What we produce&quot; gallery + Industries carousel</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/investment-casting/carbon-steel/">/services/investment-casting/carbon-steel/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/die-casting/valve-bodies.jpg">valve-bodies.jpg</a></td><td class="n">×2</td><td>&quot;What we produce&quot; gallery + Industries carousel</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/investment-casting/stainless-steel/">/services/investment-casting/stainless-steel/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/die-casting/valve-bodies.jpg">valve-bodies.jpg</a></td><td class="n">×2</td><td>&quot;What we produce&quot; gallery + Industries carousel</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/plastic-injection-molding-china/">/services/plastic-injection-molding-china/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/plastic-injection-molding/pim-molded-switch-components.jpg">pim-molded-switch-components.jpg</a></td><td class="n">×2</td><td>&quot;What we produce&quot; gallery ×2</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/plastic-injection-molding/pim-molded-electronic-switches.jpg">pim-molded-electronic-switches.jpg</a></td><td class="n">×2</td><td>&quot;What we produce&quot; gallery ×2</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/plastic-injection-molding/">/services/plastic-injection-molding/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/plastic-injection-molding/pim-molded-switch-components.jpg">pim-molded-switch-components.jpg</a></td><td class="n">×2</td><td>&quot;What we produce&quot; gallery ×2</td></tr>
+<tr><td></td><td><a href="https://redstone-web-eight.vercel.app/img/plastic-injection-molding/pim-molded-electronic-switches.jpg">pim-molded-electronic-switches.jpg</a></td><td class="n">×2</td><td>&quot;What we produce&quot; gallery ×2</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/sheet-metal-fabrication-china/">/services/sheet-metal-fabrication-china/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/sheet-metal-fabrication/tread-plate.jpg">tread-plate.jpg</a></td><td class="n">×2</td><td>&quot;What we produce&quot; gallery + Related-capabilities card</td></tr>
+<tr><td><a href="https://redstone-web-eight.vercel.app/services/sheet-metal-fabrication-mexico/">/services/sheet-metal-fabrication-mexico/</a></td><td><a href="https://redstone-web-eight.vercel.app/img/sheet-metal-fabrication/tread-plate.jpg">tread-plate.jpg</a></td><td class="n">×2</td><td>&quot;What we produce&quot; gallery + Related-capabilities card</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <footer>Generated July 8, 2026 from the deployed build · excludes intentional repeats (logo marquee, carousel thumbnails, video poster fallbacks) · scan covers all 100+ built pages</footer>
+</div>
+
+</body>
+</html>
